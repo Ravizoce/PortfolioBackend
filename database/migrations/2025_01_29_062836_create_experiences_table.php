@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
+            $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });
     }

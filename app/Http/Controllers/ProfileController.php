@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\SuperController\SuperController;
+use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,17 @@ class ProfileController extends SuperController
 
     public function __construct()
     {
-            parent::__construct("App\Models\Profile");
+        parent::__construct(
+            Profile::class,
+            ProfileRequest::class, 
+            ProfileRequest::class);
     }
 
     public function index()
     {
         //
         $profile = $this->getAllData();
+        session()->flash('success', 'From the profile ');
         return view("admin.profile", compact("profile"));
 
     }
@@ -31,6 +36,7 @@ class ProfileController extends SuperController
     public function create()
     {
         //
+
     }
 
     /**
@@ -62,7 +68,7 @@ class ProfileController extends SuperController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Profile $profile)
+    public function profileUpdate(Request $request, Profile $profile)
     {
         //
     }

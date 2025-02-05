@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("slug");
             $table->string("icon_url")->nullable();
             $table->string("icon_svg")->nullable();
+            $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });
     }

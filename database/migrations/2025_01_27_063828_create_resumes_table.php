@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("degree_name");
             $table->string("board");
             $table->string("college");
+            $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });
     }

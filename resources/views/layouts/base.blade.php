@@ -25,6 +25,8 @@
 
 
 <body class="bg-gray-800 font-sans leading-normal tracking-normal">
+    {{-- toast --}}
+    @include("toster")
 
     {{-- Nav --}}
     @include("layouts/nav")
