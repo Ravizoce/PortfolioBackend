@@ -80,7 +80,7 @@ class SuperController extends Controller
     {
         $fillable = $model->getFillable();
         $rawData = $request->only($fillable);
-        return $rawData;
+        return $rawData;    
     }
 
 }

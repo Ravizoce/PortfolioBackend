@@ -14,5 +14,9 @@ Route::get('/', function () {
 });
 
 Route::group(["prefix" => "/portfolio/"], function () {
-    Route::get("/profile" ,[ProfileController::class ,"index"])->name("profile");
+    Route::group(["prefix" => "/profile", 'as' => "profile."], function () {
+        Route::get("", [ProfileController::class, "index"])->name("index");
+        Route::get("/Create", [ProfileController::class, "profileCreate"])->name("create");
+        Route::post("/store", [ProfileController::class, "profileStore"])->name("store");
+    });
 });

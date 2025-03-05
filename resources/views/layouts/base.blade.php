@@ -20,7 +20,8 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <!--Replace with your tailwind.css once created-->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
-    
+
+    @stack('styles')
 </head>
 
 
@@ -36,11 +37,15 @@
     @include("layouts/sidenav")
 
 
-    <div class="main-content md:ml-44 flex-1 pt-5 pb-24 md:pb-5">
+    <div class="main-content pt-13 md:ml-44 flex-1 md:pt-5 pb-24 md:pb-5">
 
         @yield("contents")
         
     </div>
+
+    {{-- footer section --}}
+    @stack('scripts')
+
 </body>
 
 </html>

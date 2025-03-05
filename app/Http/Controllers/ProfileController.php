@@ -6,6 +6,7 @@ use App\Http\Controllers\SuperController\SuperController;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class ProfileController extends SuperController
 {
@@ -24,28 +25,29 @@ class ProfileController extends SuperController
     public function index()
     {
         //
+        $userTableColumn = Schema::getColumnListing('users');
         $profile = $this->getAllData();
-        session()->flash('success', 'From the profile ');
-        return view("admin.profile", compact("profile"));
+        // session()->flash('success', 'From the profile ');
+        return view("admin.profile.profile", compact("profile" ,"userTableColumn"));
 
     }
 
     /**storeRequest
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function profileCreate()
     {
-        //
-
+        return view('components.admin.profile.add-form');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function profileStore(ProfileRequest $request)
     {
-        //
 
+        $this->store();
+        return back()->with('message' , 'New profile added successfully');
 
     }
 
