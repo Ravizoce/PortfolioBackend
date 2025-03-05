@@ -7,8 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tailwind Admin Starter Template : Tailwind Toolbox</title>
     <meta name="author" content="name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield("style")

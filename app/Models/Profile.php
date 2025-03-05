@@ -16,7 +16,7 @@ class Profile extends Model
         "level",
         "tag_line",
         "tag_line2",
-        "About",
+        "about",
         "image_url"
     ];
 }

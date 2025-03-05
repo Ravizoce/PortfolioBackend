@@ -26,9 +26,9 @@ class ProfileController extends SuperController
     {
         //
         $userTableColumn = Schema::getColumnListing('users');
-        $profile = $this->getAllData();
+        $profiles = $this->getAllData();
         // session()->flash('success', 'From the profile ');
-        return view("admin.profile.profile", compact("profile" ,"userTableColumn"));
+        return view("admin.profile.profile", compact("profiles" ,"userTableColumn"));
 
     }
 
@@ -45,7 +45,7 @@ class ProfileController extends SuperController
      */
     public function profileStore(ProfileRequest $request)
     {
-
+        // dd($request);
         $this->store();
         return back()->with('message' , 'New profile added successfully');
 
