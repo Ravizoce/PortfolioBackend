@@ -11,11 +11,12 @@
             <div class="flex justify-between pr-5 pl-2 py-3">
                 <x-Breadcrumbs />
                 <x-buttons.PrimaryLinkBtn addRoute="profile.create" />
+                <x-Modal />
             </div>
         </div>
         {{-- Page Table --}}
         <div class="wrapper px-3">
-            <x-Table  :values="$profiles"/>
+            <x-Table  :values="$profiles" :routes="['edit' => 'profile.edit']"  />
         </div>
 
     </div>

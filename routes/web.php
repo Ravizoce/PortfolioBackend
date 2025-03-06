@@ -18,5 +18,7 @@ Route::group(["prefix" => "/portfolio/"], function () {
         Route::get("", [ProfileController::class, "index"])->name("index");
         Route::get("/Create", [ProfileController::class, "profileCreate"])->name("create");
         Route::post("/store", [ProfileController::class, "profileStore"])->name("store");
+        Route::post("/edit/{profile}", [ProfileController::class, "profileEdit"])->name("edit");
     });
 });
+

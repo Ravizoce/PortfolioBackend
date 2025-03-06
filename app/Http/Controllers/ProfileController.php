@@ -45,26 +45,21 @@ class ProfileController extends SuperController
      */
     public function profileStore(ProfileRequest $request)
     {
-        // dd($request);
+
         $this->store();
         return back()->with('message' , 'New profile added successfully');
 
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Profile $profile)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Profile $profile)
+    public function profileEdit(Profile $profile)
     {
         //
+        $title = "Edit Profile";
+        return view('components.admin.profile.add-form',compact(''));
+        // dd($profile);
     }
 
     /**

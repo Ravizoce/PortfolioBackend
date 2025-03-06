@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
     <!--Replace with your tailwind.css once created-->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
-
     @stack('styles')
 </head>
 
@@ -48,7 +48,7 @@
 
     {{-- footer section --}}
     @stack('scripts')
-
+    <script src="{{ asset('plugin/tailwindModelJs/tailwindmodl.mini.js') }}"></script>
 </body>
 
 </html>
