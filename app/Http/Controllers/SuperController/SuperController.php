@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\SuperController;
 
+use App\Helpers\FilePathHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -27,11 +28,14 @@ class SuperController extends Controller
     }
 
 
-    public function getAllData()
+    public function getAllData(string $Orderby = "created_at", string $Order = 'desc')
     {
-        return $this->model->get();
+        return $this->model->$Orderby($Orderby, $Order)->get();
     }
-
+    public function getPaginatedData(int $perpage = 10, string $Orderby = "created_at", string $Order = 'desc')
+    {
+        return $this->model->orderBy($Orderby, $Order)->paginate($perpage);
+    }
     public function store()
     {
         $request = resolve($this->storeRequest);
@@ -80,7 +84,16 @@ class SuperController extends Controller
     {
         $fillable = $model->getFillable();
         $rawData = $request->only($fillable);
-        return $rawData;    
+        $path=[];
+        if(!empty($request->allFiles())){
+            foreach($request->allFiles() as $index=>$file){
+                $path[$index] = FilePathHelper::filePath($file);
+            }
+            
+        }
+        
+        $rawData  = array_merge($rawData ,$path);
+        return $rawData;
     }
 
 }

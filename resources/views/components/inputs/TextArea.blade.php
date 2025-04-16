@@ -12,9 +12,8 @@
     $id = $id ?? $name;
     $errorName = $label ?? $name;
 @endphp
-
 <div class="w-full px-3 mb-3 text-white">
-    <label for="{{ $name }}" class='block text-lg font-medium {{$labelClass}}'>
+    <label for="{{ $name }}" class='flex justify-start text-lg font-medium {{$labelClass}}'>
         {{ $label }} {{ $required == "true" ? '*' : '' }} 
     </label>
     <div class="mt-1 w-full">
@@ -29,13 +28,13 @@
                 'rows'=>'4',
                 'id' => $id,
             ]) }}
-            {{ $required == "true" ? 'required' :''}}></textarea>
+            {{ $required == "true" ? 'required' :''}}>{{old($name,$oldvalue)}}</textarea>
         @error($name)
-            <div class="text-red-600">
+            <div class="text-left text-amber-500">
                 {{ $message }}
             </div>
         @enderror
-        <div class="hidden text-red-500 error_{{$id}}">
+        <div class="text-left hidden text-amber-500 error_{{$id}}">
         </div>
     </div>
 </div>

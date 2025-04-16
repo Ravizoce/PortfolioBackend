@@ -47,7 +47,8 @@
 @endphp
 
 @if ($messageType)
-    <div class="toast fixed flex flex-col top-0 right-0 m-3 justify-center z-30 text-white h-fit max-h-32 w-72 rounded-md p-2 overflow-hidden text-ellipsis 
+    <div
+        class="toast fixed flex flex-col top-0 right-0 m-3 justify-center z-30 text-white h-fit max-h-32 w-72 rounded-md p-2 overflow-hidden text-ellipsis 
         {{ $messageType === 'success' ? 'bg-green-600/90' : 'bg-red-600/90' }}">
         <div class="toast-head">
             <h1><strong>{{ $message }}</strong></h1>
@@ -57,9 +58,15 @@
 
 
 
+@push('scripts')
 <script>
-    window.onload = function() {
-        fadeToast();
+    window.onload = fetchtoast();
+
+    function fetchtoast() {
+        let toast = document.querySelector(".toast");
+        if (toast) {
+            fadeToast()
+        }
     }
 
     function fadeToast() {
@@ -73,3 +80,4 @@
         }
     }
 </script>
+@endpush

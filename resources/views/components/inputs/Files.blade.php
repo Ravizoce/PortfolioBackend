@@ -14,13 +14,12 @@
 @endphp
 
 <div class="w-full px-3 mb-3 text-white">
-    <label for="{{ $name }}" class='block text-lg font-medium {{$labelClass}}'>
+    <label for="{{ $name }}" class='flex justify-start text-lg font-medium {{$labelClass}}'>
         {{ $label }} {{ $required == "true" ? '*' : '' }} 
     </label>
     <div class="mt-1 w-full">
-        <input
+        <input type="file"
             {{ $attributes->merge([
-                'type' => 'file',
                 'name' => $name,
                 'placeholder' => $placeholder ?? $label ?? $name,
                 'value' => old($name, $oldvalue),
@@ -31,11 +30,11 @@
             ]) }}
             {{ $multiple == "true" ? 'multiple' : '' }} {{ $required == "true" ? 'required' :''}}>
         @error($name)
-            <div class="text-red-600">
+            <div class="text-left text-amber-500">
                 {{ $message }}
             </div>
         @enderror
-        <div class="hidden text-red-500 error_{{$id}}">
+        <div class="text-left hidden text-amber-500 error_{{$id}}">
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 class Profile extends Model
 {
@@ -19,4 +20,13 @@ class Profile extends Model
         "about",
         "image_url"
     ];
+    
+    public function getAttribute($key)
+    {
+        if ($key == 'created_at') {
+            return Carbon::parse(time: $this->attributes['created_at'])->diffForHumans();
+        }
+        return parent::getAttribute($key);
+    }
+
 }

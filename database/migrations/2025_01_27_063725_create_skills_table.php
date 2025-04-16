@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,7 +14,9 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("slug");
-            $table->string("icon_url")->nullable();
+            $table->enum("type", ["pro_lan", "database", "cloude", "framework", "devops", "testing"]);
+            $table->enum("group",["frontend","backend","mobile"])->nullable();
+            $table->string("icon_tag")->nullable();
             $table->string("icon_svg")->nullable();
             $table->dateTime("deleted_at")->nullable();
             $table->timestamps();

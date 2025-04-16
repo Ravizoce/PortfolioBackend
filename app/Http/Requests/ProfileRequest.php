@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Helpers\FilePathHelper;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileRequest extends FormRequest
@@ -25,4 +26,12 @@ class ProfileRequest extends FormRequest
             //
         ];
     }
+    // protected function passedValidation()
+    // {
+    //     if($this->image_url){
+    //         $filePath = FilePathHelper::filePath($this->file("image_url"));
+    //         $this->merge(['image_url' => $filePath]);
+    //     }  
+    // }
+
 }

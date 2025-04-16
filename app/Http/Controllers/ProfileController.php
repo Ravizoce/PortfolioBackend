@@ -6,6 +6,7 @@ use App\Http\Controllers\SuperController\SuperController;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use App\Helpers\FilePathHelper;
 use Illuminate\Support\Facades\Schema;
 
 class ProfileController extends SuperController
@@ -24,20 +25,8 @@ class ProfileController extends SuperController
 
     public function index()
     {
-        //
-        $userTableColumn = Schema::getColumnListing('users');
-        $profiles = $this->getAllData();
-        // session()->flash('success', 'From the profile ');
-        return view("admin.profile.profile", compact("profiles" ,"userTableColumn"));
-
-    }
-
-    /**storeRequest
-     * Show the form for creating a new resource.
-     */
-    public function profileCreate()
-    {
-        return view('components.admin.profile.add-form');
+        $profiles = $this->getPaginatedData(5);
+        return view("admin.profile.profile", compact("profiles"));
     }
 
     /**
@@ -45,21 +34,9 @@ class ProfileController extends SuperController
      */
     public function profileStore(ProfileRequest $request)
     {
-
         $this->store();
-        return back()->with('message' , 'New profile added successfully');
+        return redirect()->back()->with('success' , 'New profile added successfully');
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function profileEdit(Profile $profile)
-    {
-        //
-        $title = "Edit Profile";
-        return view('components.admin.profile.add-form',compact(''));
-        // dd($profile);
     }
 
     /**
@@ -68,13 +45,18 @@ class ProfileController extends SuperController
     public function profileUpdate(Request $request, Profile $profile)
     {
         //
+        $this->update($profile->id);
+        return redirect()->back()->with('success' , 'Profile edited successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Profile $profile)
+    public function profileDelete(Profile $profile)
     {
         //
+        $profile->delete();
+        
+        return redirect()->back()->with('success' , 'Profile deleted successfully');
     }
 }
