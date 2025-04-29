@@ -5,4 +5,4 @@
     
 ])
 
-<x-buttons.PrimaryLinkBtn  :addRoute="$backRoute"  :lable="$lable"  class="!bg-red-500"/>
+<x-buttons.PrimaryLinkBtn  :addRoute="$backRoute"  :lable="$lable"  class="!bg[denger-button]"/>

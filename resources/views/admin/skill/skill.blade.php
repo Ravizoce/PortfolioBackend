@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('contents')
     {{-- Title --}}
-    <x-PageTitle pageTitle="Tech Stack" />
+    <x-PageTitle pageTitle="Skills (Tech Stack)" />
 
     <div class="pl-6 mt-2 pr-3 text-white">
 
@@ -16,14 +16,22 @@
                     Add
                 </button>
                 <x-Modal :footer=false class="!top-1/3 !-translate-y-1/3 !w-[60%]" id="addmodal"
-                    modal_title="Add Profile">
-                    <x-admin.profile.add-form route="profile.store"/>
+                    modal_title="Add Skills">
+                    <x-admin.skills.add-form route="skill.store" :types="$types" :groups="$groups"/>
                 </x-Modal>
             </div>
         </div>
         {{-- Page TechStack --}}
         <div class="wrapper px-3">
-            {{-- <x-Table :values="$profiles" :routes="['edit' => 'profile.update' ,'delete'=>'profile.delete']" formcomponent='admin.profile.add-form' /> --}}
+            <x-Table 
+                :values="$skills" 
+                title="Skills"
+                :view_more=false
+                :routes="['edit' => 'skill.update', 'delete' => 'skill.delete']" 
+                formcomponent='admin.skills.add-form' 
+                :hidden_fields="['id','deleted_at', 'updated_at']"
+                {{-- :fields_order="[]"  --}}
+                />
         </div>
 
     </div>

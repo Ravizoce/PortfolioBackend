@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -34,9 +35,9 @@ Route::group(["prefix" => "/portfolio/"], function () {
     });
     Route::group(["prefix" => "/skill", 'as' => "skill."], function () {
         Route::get("", [SkillController::class, "index"])->name("index");
-        Route::post("/store", [SkillController::class, "experienceStore"])->name("store");
-        Route::post("/update/{experience}", [SkillController::class, "experienceUpdate"])->name("update");
-        Route::delete("/delete/{experience}", [SkillController::class, "experienceDelete"])->name("delete");
+        Route::post("/store", [SkillController::class, "skillStore"])->name("store");
+        Route::post("/update/{skill}", [SkillController::class, "skillUpdate"])->name("update");
+        Route::delete("/delete/{skill}", [SkillController::class, "skillDelete"])->name("delete");
     });
 });
 

@@ -10,9 +10,11 @@
     'labelClass' => '',
     'min' => 0,
     'max' => 0,
+    "hint"=>null,
+    "is_edit"=>"0x00",
 ])
 @php
-    $id = $id ?? $name;
+    $id = ($id ?? $name).$is_edit ;
     $errorName = $label ?? $name;
 @endphp
 
@@ -33,6 +35,10 @@
             ]) }}
             {{ $min != 0 ? "min=$min" : '' }} {{ $max != 0 ? "max=$max" : '' }}
             {{ $multiple == 'true' ? 'multiple' : '' }} {{ $required == 'true' ? 'required' : '' }}>
+            <div @if($hint) hidden @endif>
+                <label>{{$hint}}</label>
+            </div>
+            
         @error($name)
             <div class="text-left text-amber-500">
                 {{ $message }}

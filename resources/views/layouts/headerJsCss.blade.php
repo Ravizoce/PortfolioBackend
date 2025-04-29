@@ -4,7 +4,7 @@
 <link href={{ asset('css/FontAwesom/css/brands.css') }} rel="stylesheet" />
 <link href={{ asset('css/FontAwesom/css/solid.css') }} rel="stylesheet" />
 
-<link href={{ asset("css/MaterialIcon/materialagain.css") }} rel="stylesheet" />
+<link href={{ asset('css/MaterialIcon/materialagain.css') }} rel="stylesheet" />
 <mat-icon class="material-icons-outlined" svgIcon="dark_mode-outline"></mat-icon>
 
 <script src={{ asset('js/tailwind.js') }}></script>
@@ -31,5 +31,17 @@
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
+    }
+
+    :root {
+        --primary-button:#2b7fff;
+        --secoandary-button:#04c352;
+        --denger-button:#e7000b;
+        --main-bg:#1e2939;
+        --card-bg:#415167;
+        --text-light:;
+    }
+    .bg-card{
+        background-color: var(--card-bg);
     }
 </style>

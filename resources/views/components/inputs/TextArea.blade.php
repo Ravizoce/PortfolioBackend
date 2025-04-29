@@ -7,9 +7,10 @@
     'oldvalue' => null,
     'required' => false,
     'labelClass' => '',
+    'is_edit' =>"0x00",
 ])
 @php
-    $id = $id ?? $name;
+    $id = ($id ?? $name).$is_edit;
     $errorName = $label ?? $name;
 @endphp
 <div class="w-full px-3 mb-3 text-white">

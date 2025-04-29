@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li class="mr-3 flex-1">
-                        <a href="{{route("education.index")}}"
+                        <a href="{{route("skill.index")}}"
                             class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 {{ request()->routeIs("skill.index") ? "border-blue-600" :'border-gray-800 hover:border-green-700' }} ">
                             <i class="fas fa-layer-group pr-0 md:pr-2"></i>
                             <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-500 md:text-gray-400 block md:inline-block">

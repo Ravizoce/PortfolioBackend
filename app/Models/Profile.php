@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Profile extends Model
 {
@@ -25,6 +26,9 @@ class Profile extends Model
     {
         if ($key == 'created_at') {
             return Carbon::parse(time: $this->attributes['created_at'])->diffForHumans();
+        }
+        if($key == "urlImage"){
+            return Storage::url($this->attributes["image_url"]);
         }
         return parent::getAttribute($key);
     }

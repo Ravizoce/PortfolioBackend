@@ -4,6 +4,7 @@
     'article' => 'a',
     'required' => null,
     'options' => [],
+    'option_name'=>'name',
     'addOpt' => 'false',
 ])
 
@@ -16,7 +17,7 @@
         {{ $label }}{{ $required == 'true' ? '*' : '' }}
     </label>
     <div class="flex">
-        <select name="{{ $name }}" id="{{ $id }}" {{ $required ? 'required' : '' }}
+        <select name="{{ $name }}" id="{{ $id }}" {{ $required =="true" ? 'required' : '' }}
             class="text-white appearance-none  block min-w-9 w-full grow py-2 pr-3 pl-2 text-base  border-1 border-slate-500 placeholder:text-gray-400 {{ $addOpt == 'false' ? 'rounded' : 'rounded rounded-r-none' }} focus:bg-slate-900 focus:border-blue-500">
             <option value='' selected disabled hidden class="text-gray-400 bg-slate-700">Select {{ $article }}
                 {{ $label }}</option>
@@ -24,7 +25,7 @@
                 {{ $label }}
             </option>
             @foreach ($options as $option)
-                <option value="{{ $option?->id }}">$option?->name</option>
+                <option value="{{ $option?->id }}">{{$option?->$option_name}}</option>
             @endforeach
         </select>
         @if ($addOpt == 'true')
@@ -33,7 +34,7 @@
         @endif
     </div>
     @error($name)
-        <div class="text-red-600">
+        <div class="text-amber-500">
             {{ $message }}
         </div>
     @enderror

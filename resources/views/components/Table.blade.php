@@ -58,6 +58,7 @@
             </thead>
             <tbody class="text-center">
                 @foreach ($values as $value)
+                
                     <tr class="{{ $loop->odd ? 'bg-gray-600' : 'bg-gray-700' }} ">
                         <td class="px-2 py-4">{{ $loop->iteration }}</td>
                         @foreach ($tableColums as $key => $tableColum)
@@ -66,7 +67,8 @@
                                     class="px-2 py-4 max-w-[2rem] lg:max-w-[10rem] whitespace-nowrap overflow-hidden text-ellipsis ">
                                     @if ($value->$key)
                                         <img class="h-[10vh] w-[20vw] object-contain rounded-md cursor-pointer"
-                                            src="{{ asset('storage/' . $value->$key) }}"
+                                            {{-- src="{{ asset('storage/' . $value->$key) }}" --}}
+                                            src="{{ $value->urlImage }}"
                                             alt="{{ $value->$key ?? '-' }}">
                                     @else
                                         -
@@ -134,7 +136,7 @@
                                     <x-Modal :footer=false class="!top-1/3 !-translate-y-1/3 !w-[60%]"
                                         id="editmodal_{{ $value->id }}" modal_title="Edit {{ $title }}">
                                         <x-dynamic-component :component="$formcomponent" class="mt-4" :value="$value"
-                                            :route="$routes['edit']" :parameter="$value->id" is_edit=false />
+                                            :route="$routes['edit']" :parameter="$value->id" is_edit="0x01" />
                                     </x-Modal>
                                     <button data-toggle="modal" data-target="#editmodal_{{ $value->id }}"
                                         class="material-symbols-outlined rounded-md p-1 bg-green-500/95 transition-all duration-300 ease-in-out hover:shadow-[0px_0px_5px_rgba(255,255,255.0.1)] shadow-amber-400 cursor-pointer">edit_square</button>

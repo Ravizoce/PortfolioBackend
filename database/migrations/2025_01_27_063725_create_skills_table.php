@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->enum("type", ["pro_lan", "database", "cloude", "framework", "devops", "testing"]);
             $table->enum("group",["frontend","backend","mobile"])->nullable();
             $table->string("icon_tag")->nullable();
-            $table->string("icon_svg")->nullable();
+            $table->text("icon_svg")->nullable();
             $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });
