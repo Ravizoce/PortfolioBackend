@@ -17,7 +17,7 @@
                 </button>
                 <x-Modal :footer=false class="!top-1/3 !-translate-y-1/3 !w-[60%]" id="addmodal"
                     modal_title="Add Skills">
-                    <x-admin.skills.add-form route="skill.store" :types="$types" :groups="$groups"/>
+                    <x-admin.skills.add-form route="skill.store"/>
                 </x-Modal>
             </div>
         </div>

@@ -11,6 +11,6 @@ class Breadcrumbs extends Component
     ) {}
     public function render(): View
     {
-        return view('components.breadcrumbs');
+        return view("components.Breadcrumbs");
     }
 }

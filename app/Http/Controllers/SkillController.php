@@ -25,49 +25,9 @@ class SkillController extends SuperController
     public function index()
     {
         $skills = $this->getPaginatedData(5);
-        $types = (object) [
-            (object)[
-
-                "id" => 1,
-                "name" => "Programming Language"
-            ],
-            (object)[
-                "id" => 2,
-                "name" => "database"
-            ],
-            (object)[
-                "id" => 3,
-                "name" => "cloude"
-            ],
-            (object)[
-                "id" => 4,
-                "name" => "framework"
-            ],
-            (object)[
-                "id" => 5,
-                "name" => "devops"
-            ],
-            (object)[
-                "id" => 6,
-                "name" => "testing"
-            ]
-        ];
-        $groups = (object) [
-            (object)[
-                "id"=>1,
-                "name" => "frontend"
-            ],
-            (object)[
-                "id"=>2,
-                "name" => "backend"
-            ],
-            (object)[
-                "id"=>3,
-                "name" => "mobile"
-            ]
-        ];
+        
         // dd();
-        return view('admin.skill.skill', compact('skills', "types", "groups"));
+        return view('admin.skill.skill', compact('skills'));
     }
 
     /**
