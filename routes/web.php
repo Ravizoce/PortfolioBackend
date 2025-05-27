@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,12 @@ Route::group(["prefix" => "/portfolio/"], function () {
         Route::post("/store", [SkillController::class, "skillStore"])->name("store");
         Route::post("/update/{skill}", [SkillController::class, "skillUpdate"])->name("update");
         Route::delete("/delete/{skill}", [SkillController::class, "skillDelete"])->name("delete");
+    });
+    Route::group(["prefix" => "/project", 'as' => "project."], function () {
+        Route::get("", [ProjectController::class, "index"])->name("index");
+        Route::post("/store", [ProjectController::class, "projectStore"])->name("store");
+        Route::post("/update/{project}", [ProjectController::class, "projectUpdate"])->name("update");
+        Route::delete("/delete/{project}", [ProjectController::class, "projectDelete"])->name("delete");
     });
 });
 

@@ -15,8 +15,8 @@ class Skill extends Model
         "slug",
         "type",
         "group",
-        "icon_tag",
-        "icon_svg",
+        "icon_class",
+        // "icon_svg",
     ];
 
     // public function project(){

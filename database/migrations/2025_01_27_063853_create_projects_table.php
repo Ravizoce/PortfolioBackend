@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string("name");
             $table->string("description");
             $table->string("host_link");
-            $table->string("type")->default("personal")->comment("personal,professional");
+            $table->enum("type",["personal","professional"])->default("personal")->comment("personal,professional");
+            $table->string("thumbnail");
             $table->dateTime("deleted_at")->nullable();
             $table->timestamps();
         });

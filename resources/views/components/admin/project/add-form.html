@@ -1,0 +1,21 @@
+{{-- @props([
+    'value' => null,
+    'route' => '',
+    'parameter' => null,
+    'is_edit' => "0x00",
+]) --}}
+
+<div class="pl-6 pr-3">
+    <form method="POST" enctype="multipart/form-data" action="{{ route($route, $parameter ) }}">
+        @csrf
+        <x-inputs.Input name="name" type="text" label="Name" required="true" id='name' :oldvalue="$value?->name"  :is_edit="$is_edit" />
+        <x-inputs.Input name="host_link" type="text" label="Host Link" required="false" :oldvalue="$value?->host_link"  :is_edit="$is_edit" />
+        <x-inputs.Select name="type" :options="$types" type="text" label="Type" required="false" :oldvalue="$value?->type"  :is_edit="$is_edit" />
+        <x-inputs.Files name="thumbnail" type="file" label="Thumbnail" required="false" :oldvalue="$value?->thumbnail" :is_edit="$is_edit" />
+        <x-inputs.TextArea name="description" type="text" label="Description" required="true" :oldvalue="$value?->description"  :is_edit="$is_edit" />
+
+        <div class="flex justify-start">
+            <x-buttons.SubmitButton class="mx-4" lable="submit" />
+        </div>
+    </form>
+</div>

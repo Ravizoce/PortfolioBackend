@@ -51,8 +51,8 @@
                         </a>
                     </li>
                     <li class="mr-3 flex-1">
-                        <a href="#"
-                            class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 {{ false ? "border-blue-600" :'border-gray-800 hover:border-purple-700' }}">
+                        <a href="{{route("project.index")}}"
+                            class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 {{ request()->routeIs("project.index") ? "border-blue-600" :'border-gray-800 hover:border-purple-700' }}">
                             <i class="fa fa-folder-open pr-0 md:pr-3"></i>
                             <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">
                                 Project

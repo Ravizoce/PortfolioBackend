@@ -52,8 +52,8 @@
             :oldvalue="$value?->type" />
         <x-inputs.Select :options="$groups" name="group" type="text" label="Group" required="true"
             :oldvalue="$value?->group" />
-        <x-inputs.Input name="icon_tag" type="text" label="Icon Tag" required="false" :oldvalue="$value?->icon_tag" />
-        <x-inputs.Input name="icon_svg" type="text" label="Icon Svg" required="false" :oldvalue="$value?->icon_svg" />
+        <x-inputs.Input name="icon_tag" type="text" label="Icon Tag" required="true" :oldvalue="$value?->icon_tag" />
+        {{-- <x-inputs.Input name="icon_svg" type="text" label="Icon Svg" required="false" :oldvalue="$value?->icon_svg" /> --}}
         <div class="flex justify-start">
             <x-buttons.SubmitButton class="mx-4" lable="submit" />
         </div>

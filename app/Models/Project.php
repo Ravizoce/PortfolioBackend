@@ -13,7 +13,7 @@ class Project extends Model
         "name",
         "description",
         "host_link",
-        "type,
-        targate"
+        "type",
+        "thumbnail"
     ];
 }

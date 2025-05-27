@@ -3,6 +3,7 @@
     'hidden_fields' => [],
     'fields_order' => [],
     'fileField' => ['image_url'],
+    'customField'=>[],  //{{-- custom file formate ["key"=value] --}}
     'action' => true,
     'view_more' => true,
     'routes' => ['edit' => null, 'delete' => null, 'status' => null],
@@ -15,6 +16,10 @@
 @php
     $columns = $values && isset($values[0]) ? collect($values[0]->getAttributes()) : null;
     if ($columns) {
+        if(!empty($customField)){
+            $customField = collect($customField);
+            $columns = $customField->merge($columns);
+        }
         if ($fields_order) {
             $Orderedcolumns = collect($fields_order)
                 ->mapWithKeys(fn($key) => [$key => $columns[$key]])
